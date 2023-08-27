@@ -17,15 +17,6 @@ jobs:
     - name: Setup MSBuild
       uses: microsoft/setup-msbuild@v1
     
-    - name: Setup NuGet
-      uses: NuGet/setup-nuget@v1.0.5
-      
-    - name: setup-msbuild
-      uses: microsoft/setup-msbuild@v1.1
-    
-    - name: Restore Packages
-      run: nuget restore 'MWR FoV Changer.sln'
-    
     - name: Build solution
       run: msbuild 'MWR FoV Changer.sln' -t:rebuild -property:Configuration=Release
 
@@ -33,5 +24,5 @@ jobs:
       uses: actions/upload-artifact@v3.1.2
       with:
         name: build
-        path: bin/Release
+        path: MWR FoV Changer/bin/Release
             
