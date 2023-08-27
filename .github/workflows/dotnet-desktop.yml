@@ -2,9 +2,9 @@ name: CI
 on:
   workflow_dispatch:
   push:
-    branches: [ main ]
+    branches: [ master ]
   pull_request:
-    branches: [ main ]
+    branches: [ master ]
 
 
 jobs:
@@ -24,7 +24,7 @@ jobs:
       uses: microsoft/setup-msbuild@v1.1
     
     - name: Restore Packages
-      run: nuget restore MWR FoV Changer.sln
+      run: nuget restore 'MWR FoV Changer.sln'
     
     - name: Build solution
-      run: msbuild MWR FoV Changer.sln -t:rebuild -property:Configuration=Release
+      run: msbuild 'MWR FoV Changer.sln' -t:rebuild -property:Configuration=Release
